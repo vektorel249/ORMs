@@ -1,4 +1,5 @@
 ﻿using Vektorel.Orms.BuiltIn.Managers;
+using Vektorel.Orms.Data.Entities;
 
 namespace Vektorel.Orms.DarkScreen
 {
@@ -11,6 +12,11 @@ namespace Vektorel.Orms.DarkScreen
             foreach (var category in categories)
             {
                 Console.WriteLine($"{category.CategoryID} {category.CategoryName}");
+            }
+
+            foreach (var product in dm.GetProducts())
+            {
+                Console.WriteLine($"{product.ProductID}\t {product.ProductName}\t {product.UnitPrice}");
             }
         }
     }

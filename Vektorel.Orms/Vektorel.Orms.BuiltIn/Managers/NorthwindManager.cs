@@ -51,8 +51,22 @@ public class NorthwindManager : IDataConnection
         return result;
     }
 
-    public List<Product> GetProducts()
+    public IEnumerable<Product> GetProducts()
     {
-        throw new NotImplementedException();
+        var query = "select ProductID, ProductName, UnitPrice, UnitsInStock from Products";
+        using var connection = Connect(); // scope bittiğinde ilgili nesneyi yok eder. nesne IDisposable interface ini kullanmak zorunda
+        using var command = connection.CreateCommand();
+        command.CommandText = query;
+        using var reader = command.ExecuteReader();
+        while (reader.Read())
+        {
+            yield return new Product // parçalı bir dönüş sağlıyor
+            {
+                ProductID = Convert.ToInt32(reader["ProductID"]),
+                ProductName = reader["ProductName"].ToString(),
+                UnitPrice = Convert.ToDecimal(reader["UnitPrice"]),
+                UnitsInStock = Convert.ToInt32(reader["UnitsInStock"]),
+            };
+        }
     }
 }

@@ -9,5 +9,5 @@ public interface IDataConnection
     bool IsConnected { get; set; }
     DbConnection Connect();
     List<Category> GetCategories();
-    List<Product> GetProducts();
+    IEnumerable<Product> GetProducts();
 }
