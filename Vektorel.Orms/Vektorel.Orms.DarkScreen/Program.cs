@@ -1,5 +1,4 @@
-﻿using Vektorel.Orms.BuiltIn.Managers;
-using Vektorel.Orms.Data.Entities;
+﻿using Vektorel.Orms.DapperLib.Managers;
 
 namespace Vektorel.Orms.DarkScreen
 {

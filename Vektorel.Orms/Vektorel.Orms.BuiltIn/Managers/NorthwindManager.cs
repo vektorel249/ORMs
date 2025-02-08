@@ -14,7 +14,6 @@ public class NorthwindManager : IDataConnection
         ConnectionString = "Server=192.168.254.198;Database=Northwind;User Id=va249;Password=123;TrustServerCertificate=true;";
     }
     public string? ConnectionString { get; set; }
-    public bool IsConnected { get; set; }
 
     public DbConnection Connect()
     {

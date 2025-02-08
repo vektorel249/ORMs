@@ -6,7 +6,6 @@ namespace Vektorel.Orms.Data.Connection;
 public interface IDataConnection
 {
     string? ConnectionString { get; set; }
-    bool IsConnected { get; set; }
     DbConnection Connect();
     List<Category> GetCategories();
     IEnumerable<Product> GetProducts();

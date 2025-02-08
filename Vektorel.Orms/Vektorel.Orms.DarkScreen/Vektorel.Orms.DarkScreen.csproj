@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Vektorel.Orms.BuiltIn\Vektorel.Orms.BuiltIn.csproj" />
+    <ProjectReference Include="..\Vektorel.Orms.DapperLib\Vektorel.Orms.DapperLib.csproj" />
   </ItemGroup>
 
 </Project>
