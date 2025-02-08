@@ -11,7 +11,7 @@ public class NorthwindManager : IDataConnection
 {
     public NorthwindManager()
     {
-        ConnectionString = "Server=192.168.254.198;Database=Northwind;User Id=va249;Password=123;Trusted_Connection=True";
+        ConnectionString = "Server=192.168.254.198;Database=Northwind;User Id=va249;Password=123;TrustServerCertificate=true;";
     }
     public string? ConnectionString { get; set; }
     public bool IsConnected { get; set; }
@@ -40,7 +40,6 @@ public class NorthwindManager : IDataConnection
         {
             Debug.WriteLine("Okudum");
         }
-        Debug.WriteLine("Okudum");
 
         return null;
     }
