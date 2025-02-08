@@ -7,7 +7,11 @@ namespace Vektorel.Orms.DarkScreen
         static void Main(string[] args)
         {
             var dm = new NorthwindManager();
-            dm.GetCategories();
+            var categories = dm.GetCategories();
+            foreach (var category in categories)
+            {
+                Console.WriteLine($"{category.CategoryID} {category.CategoryName}");
+            }
         }
     }
 }

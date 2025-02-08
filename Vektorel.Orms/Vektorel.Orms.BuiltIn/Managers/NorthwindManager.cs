@@ -36,12 +36,19 @@ public class NorthwindManager : IDataConnection
         var command = connection.CreateCommand();
         command.CommandText = query;
         var reader = command.ExecuteReader();
+        var result = new List<Category>();
         while (reader.Read())
         {
-            Debug.WriteLine("Okudum");
+            var category = new Category
+            {
+                CategoryID = reader.GetInt32(0), // Convert.ToInt32(reader["CategoryId"])
+                CategoryName = reader.GetString(1),
+                Description = reader["Description"].ToString()
+            };
+            result.Add(category);
         }
 
-        return null;
+        return result;
     }
 
     public List<Product> GetProducts()
