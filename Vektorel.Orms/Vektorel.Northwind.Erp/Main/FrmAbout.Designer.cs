@@ -1,6 +1,6 @@
-﻿namespace Vektorel.Northwind.Erp.Products
+﻿namespace Vektorel.Northwind.Erp.Main
 {
-    partial class FrmProducts
+    partial class FrmAbout
     {
         /// <summary>
         /// Required designer variable.
@@ -28,36 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            label1 = new Label();
             SuspendLayout();
             // 
-            // dataGridView1
+            // label1
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 77);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(555, 318);
-            dataGridView1.TabIndex = 0;
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 49);
+            label1.Name = "label1";
+            label1.Size = new Size(297, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Vektörel Bilişim Ar-ge Laboratuvarlarında Geliştirilmiştir";
             // 
-            // FrmProducts
+            // FrmAbout
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(579, 407);
-            Controls.Add(dataGridView1);
+            ClientSize = new Size(323, 145);
+            Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "FrmProducts";
-            ShowInTaskbar = false;
-            Text = "FrmProducts";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Name = "FrmAbout";
+            Text = "Northwin Coo. ERP Hakkında";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private Label label1;
     }
 }
