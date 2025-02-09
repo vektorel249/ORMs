@@ -38,6 +38,7 @@
             Name = "FrmMain";
             Text = "Northwin Coo.";
             WindowState = FormWindowState.Maximized;
+            Load += FrmMain_Load;
             ResumeLayout(false);
         }
 

@@ -1,3 +1,5 @@
+using Vektorel.Orms.Erp.Data.Repositories;
+
 namespace Vektorel.Northwind.Erp
 {
     public partial class FrmMain : Form
@@ -5,6 +7,11 @@ namespace Vektorel.Northwind.Erp
         public FrmMain()
         {
             InitializeComponent();
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

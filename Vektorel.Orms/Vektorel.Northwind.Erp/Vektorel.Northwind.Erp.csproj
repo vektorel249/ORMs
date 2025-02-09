@@ -8,4 +8,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Vektorel.Northwind.Erp.Data\Vektorel.Northwind.Erp.Data.csproj" />
+  </ItemGroup>
+
 </Project>
