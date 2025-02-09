@@ -22,10 +22,21 @@ namespace Vektorel.Orms.Erp.Data.Repositories
             connectionManager = new ConnectionManager();
         }
 
-        public List<Product> GetProducts()
+        public List<Product> GetProducts(int offset)
         {
-            var query = "select * from Products";
+            var pageSize = 10;
+            offset = offset * pageSize;
+            var query = @$"select ProductID, ProductName, UnitPrice, UnitsInStock 
+                          from Products
+                          order by ProductName
+                          offset {offset} rows
+                          fetch next {pageSize} rows only";
             return connectionManager.GetConnection().Query<Product>(query).ToList();
+        }
+
+        public int GetProductCount()
+        {
+            return connectionManager.GetConnection().QueryFirst<int>("select count(0) from products");
         }
     }
 }

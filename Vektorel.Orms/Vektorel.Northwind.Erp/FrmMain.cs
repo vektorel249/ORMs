@@ -69,7 +69,7 @@ namespace Vektorel.Northwind.Erp
         {
             var f = Activator.CreateInstance<F>(); // method ile instance alma yöntemi (Reflection)
             //var f = new F(); ama bunu yazamayýz. Bkz. Generic konusu
-            f.MdiParent = this;
+            f.MdiParent = this; // FRMMain içinde açýlmasý için
             f.Show();
         }
     }
