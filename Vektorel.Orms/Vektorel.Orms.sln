@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vektorel.Orms.BuiltIn", "Vektorel.Orms.BuiltIn\Vektorel.Orms.BuiltIn.csproj", "{F215EA5E-76A6-4E70-92DC-C6B0310AD932}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vektorel.Orms.BuiltIn", "Vektorel.Orms.BuiltIn\Vektorel.Orms.BuiltIn.csproj", "{F215EA5E-76A6-4E70-92DC-C6B0310AD932}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vektorel.Orms.DapperLib", "Vektorel.Orms.DapperLib\Vektorel.Orms.DapperLib.csproj", "{10C52AD4-766E-48BF-9481-E8D9C22F58A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vektorel.Orms.DapperLib", "Vektorel.Orms.DapperLib\Vektorel.Orms.DapperLib.csproj", "{10C52AD4-766E-48BF-9481-E8D9C22F58A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vektorel.Orms.Data", "Vektorel.Orms.Data\Vektorel.Orms.Data.csproj", "{E952F2DE-80BC-4BBB-B668-9E1053EB35C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vektorel.Orms.Data", "Vektorel.Orms.Data\Vektorel.Orms.Data.csproj", "{E952F2DE-80BC-4BBB-B668-9E1053EB35C5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "app", "{2E2D7E90-4FB7-4B0B-A2D5-79D76FDF8F09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vektorel.Orms.DarkScreen", "Vektorel.Orms.DarkScreen\Vektorel.Orms.DarkScreen.csproj", "{011D1126-741D-442A-A409-216013746E2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vektorel.Orms.DarkScreen", "Vektorel.Orms.DarkScreen\Vektorel.Orms.DarkScreen.csproj", "{011D1126-741D-442A-A409-216013746E2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vektorel.Northwind.Erp", "Vektorel.Northwind.Erp\Vektorel.Northwind.Erp.csproj", "{9F824BF7-91D8-40DC-A486-A83027784DD3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,12 +37,17 @@ Global
 		{011D1126-741D-442A-A409-216013746E2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{011D1126-741D-442A-A409-216013746E2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{011D1126-741D-442A-A409-216013746E2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F824BF7-91D8-40DC-A486-A83027784DD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F824BF7-91D8-40DC-A486-A83027784DD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F824BF7-91D8-40DC-A486-A83027784DD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F824BF7-91D8-40DC-A486-A83027784DD3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{011D1126-741D-442A-A409-216013746E2C} = {2E2D7E90-4FB7-4B0B-A2D5-79D76FDF8F09}
+		{9F824BF7-91D8-40DC-A486-A83027784DD3} = {2E2D7E90-4FB7-4B0B-A2D5-79D76FDF8F09}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {724EED08-1203-41CB-A3F6-2547AB99BFC3}
