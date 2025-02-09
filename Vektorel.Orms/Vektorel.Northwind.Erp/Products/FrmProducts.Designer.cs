@@ -141,9 +141,9 @@
             // 
             // button1
             // 
-            button1.Location = new Point(404, 11);
+            button1.Location = new Point(384, 12);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new Size(95, 23);
             button1.TabIndex = 3;
             button1.Text = "Yeni Kategori";
             button1.UseVisualStyleBackColor = true;

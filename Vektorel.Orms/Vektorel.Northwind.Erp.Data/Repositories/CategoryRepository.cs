@@ -4,24 +4,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Vektorel.Northwind.Erp.Data.DTOs;
 using Vektorel.Northwind.Erp.Data.Entities;
 using Vektorel.Northwind.Erp.Data.Managers;
 
-namespace Vektorel.Orms.Erp.Data.Repositories
+namespace Vektorel.Orms.Erp.Data.Repositories;
+
+public class CategoryRepository : IConnectionManager
 {
-    public class CategoryRepository : IConnectionManager
+    private ConnectionManager connectionManager;
+
+    public CategoryRepository()
     {
-        private ConnectionManager connectionManager;
+        CreateConnection();
+    }
+    public void CreateConnection()
+    {
+        connectionManager = new ConnectionManager();
+    }
 
-        public void CreateConnection()
-        {
-            connectionManager = new ConnectionManager();
-        }
-
-        public List<Category> GetCategories()
-        {
-            var query = "select * from Categories";
-            return connectionManager.GetConnection().Query<Category>(query).ToList();
-        }
+    public List<Option> GetCategories()
+    {
+        var query = "select CategoryID as Code, CategoryName as Name from Categories order by Name";
+        return connectionManager.GetConnection().Query<Option>(query).ToList();
     }
 }

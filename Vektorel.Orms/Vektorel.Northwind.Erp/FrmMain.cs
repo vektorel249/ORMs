@@ -71,6 +71,9 @@ namespace Vektorel.Northwind.Erp
             //var f = new F(); ama bunu yazamayýz. Bkz. Generic konusu
             f.MdiParent = this; // FRMMain içinde açýlmasý için
             f.Show();
+
+            // Her formu yalnýzca bir kere açabilecek bir þey yapýn.
+            // Ýpucu: Araþtýrýnýz => Dictionary
         }
     }
 }

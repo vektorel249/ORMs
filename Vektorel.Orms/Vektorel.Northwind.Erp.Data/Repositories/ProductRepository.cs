@@ -1,10 +1,6 @@
 ﻿using Dapper;
 using Microsoft.Data.SqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Vektorel.Northwind.Erp.Data.DTOs;
 using Vektorel.Northwind.Erp.Data.Entities;
 using Vektorel.Northwind.Erp.Data.Managers;
 
@@ -37,6 +33,13 @@ namespace Vektorel.Orms.Erp.Data.Repositories
         public int GetProductCount()
         {
             return connectionManager.GetConnection().QueryFirst<int>("select count(0) from products");
+        }
+
+        public void Save(NewProductDTO product)
+        {
+            var query = @"insert into Products (ProductName, UnitPrice, UnitsInStock, CategoryID, SupplierID)
+                          values (@Name, @Price, @Stock, @CategoryId, @SupplierId)";
+            connectionManager.GetConnection().Execute(query, product);
         }
     }
 }

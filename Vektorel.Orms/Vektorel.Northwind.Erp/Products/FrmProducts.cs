@@ -50,7 +50,11 @@ namespace Vektorel.Northwind.Erp.Products
 
         private void btnNewProduct_Click(object sender, EventArgs e)
         {
+            var f = new FrmNewProduct();
+            f.MdiParent = this.MdiParent;
+            f.Show();
 
+            // Ödevde olan tek form açılması konusu geçerli
         }
     }
 }
