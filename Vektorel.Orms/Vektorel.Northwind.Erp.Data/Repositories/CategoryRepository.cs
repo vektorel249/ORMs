@@ -21,6 +21,10 @@ public class CategoryRepository : IConnectionManager
 
     public bool Add(NewCategoryDTO category)
     {
+        // kategori adını ve açıklamayı normalize et
+        // "  SPorTs  " => "Sports"
+        // "SpoRT STUfFS and Things, " => Sport stufss and things
+
         var exist = CheckIfExistByName(category.Name, 0);
         if (exist)
         {
