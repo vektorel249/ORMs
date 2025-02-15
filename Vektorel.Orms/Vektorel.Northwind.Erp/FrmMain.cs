@@ -1,25 +1,23 @@
+using Vektorel.Northwind.Erp.Helpers;
 using Vektorel.Northwind.Erp.Main;
 using Vektorel.Northwind.Erp.Products;
 using Vektorel.Northwind.Erp.Suppliers;
-using Vektorel.Orms.Erp.Data.Repositories;
 
 namespace Vektorel.Northwind.Erp
 {
     public partial class FrmMain : Form
     {
+        private FormHelper formHelper;
         public FrmMain()
         {
             InitializeComponent();
-        }
-
-        private void FrmMain_Load(object sender, EventArgs e)
-        {
-
+            formHelper = new FormHelper();
+            formHelper.Initialize(this);
         }
 
         private void msbProducts_Click(object sender, EventArgs e)
         {
-            OpenChildForm<FrmProducts>();
+            formHelper.OpenForm<FrmProducts>();
         }
         private bool canClose;
         private void msbExit_Click(object sender, EventArgs e)
@@ -47,33 +45,22 @@ namespace Vektorel.Northwind.Erp
 
         private void msbAbout_Click(object sender, EventArgs e)
         {
-            OpenChildForm<FrmAbout>();
+            formHelper.OpenForm<FrmAbout>();
         }
 
         private void msnNewProduct_Click(object sender, EventArgs e)
         {
-            OpenChildForm<FrmNewProduct>();
+            formHelper.OpenForm<FrmNewProduct>();
         }
 
         private void msbNewSupplier_Click(object sender, EventArgs e)
         {
-            OpenChildForm<FrmNewSupplier>();
+            formHelper.OpenForm<FrmNewSupplier>();
         }
 
         private void msbNewCategory_Click(object sender, EventArgs e)
         {
-            OpenChildForm<FrmCreateCategory>();
-        }
-
-        private void OpenChildForm<F>() where F : Form
-        {
-            var f = Activator.CreateInstance<F>(); // method ile instance alma yöntemi (Reflection)
-            //var f = new F(); ama bunu yazamayýz. Bkz. Generic konusu
-            f.MdiParent = this; // FRMMain içinde açýlmasý için
-            f.Show();
-
-            // Her formu yalnýzca bir kere açabilecek bir þey yapýn.
-            // Ýpucu: Araþtýrýnýz => Dictionary
+            formHelper.OpenForm<FrmCreateCategory>();
         }
     }
 }

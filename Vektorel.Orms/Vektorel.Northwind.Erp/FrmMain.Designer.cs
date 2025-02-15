@@ -180,7 +180,6 @@
             Text = "Northwin Coo.";
             WindowState = FormWindowState.Maximized;
             FormClosing += FrmMain_FormClosing;
-            Load += FrmMain_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);

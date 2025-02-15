@@ -1,4 +1,5 @@
 ﻿using Vektorel.Northwind.Erp.Data.Entities;
+using Vektorel.Northwind.Erp.Helpers;
 using Vektorel.Orms.Erp.Data.Repositories;
 
 namespace Vektorel.Northwind.Erp.Products
@@ -6,6 +7,7 @@ namespace Vektorel.Northwind.Erp.Products
     public partial class FrmProducts : Form
     {
         private ProductRepository repository;
+        private FormHelper formHelper;
         public int PageIndex { get; set; }
         public int Total { get; set; }
         public int PageCount { get; set; }
@@ -18,6 +20,7 @@ namespace Vektorel.Northwind.Erp.Products
             dgcPrice.DataPropertyName = nameof(Product.UnitPrice); // "UnitPrice" demek
             dgcStock.DataPropertyName = nameof(Product.UnitsInStock); // "UnitsInStock" demek
             repository = new ProductRepository();
+            formHelper = new FormHelper();
         }
 
         private void FrmProducts_Load(object sender, EventArgs e)
@@ -50,11 +53,7 @@ namespace Vektorel.Northwind.Erp.Products
 
         private void btnNewProduct_Click(object sender, EventArgs e)
         {
-            var f = new FrmNewProduct();
-            f.MdiParent = this.MdiParent;
-            f.Show();
-
-            // Ödevde olan tek form açılması konusu geçerli
+            formHelper.OpenForm<FrmNewProduct>();
         }
     }
 }

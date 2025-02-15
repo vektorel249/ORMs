@@ -86,11 +86,7 @@
             Controls.Add(label2);
             Controls.Add(textBox1);
             Controls.Add(label1);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            MaximizeBox = false;
-            MinimizeBox = false;
             Name = "FrmCreateCategory";
-            ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Yeni Kategori";
             ResumeLayout(false);

@@ -160,8 +160,6 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(btnSave);
-            MaximizeBox = false;
-            MinimizeBox = false;
             Name = "FrmNewProduct";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Yeni Ürün Tanımı";
