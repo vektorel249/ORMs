@@ -77,5 +77,10 @@ namespace Vektorel.Northwind.Erp.Products
                 dgvCategories.DataSource = categoryRepository.GetCategories();
             }
         }
+
+        private void dgvCategories_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Delete tuşuna basılırsa kategoriyi sil
+        }
     }
 }

@@ -37,12 +37,12 @@
             dgcPrice = new DataGridViewTextBoxColumn();
             dgcStock = new DataGridViewTextBoxColumn();
             tabPage2 = new TabPage();
-            btnNewProduct = new Button();
-            btnNewCategory = new Button();
             tabPage3 = new TabPage();
             dgvCategories = new DataGridView();
             dgcCategoryName = new DataGridViewTextBoxColumn();
             dgcCategoryDescription = new DataGridViewTextBoxColumn();
+            btnNewProduct = new Button();
+            btnNewCategory = new Button();
             tabProducts.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
@@ -137,26 +137,6 @@
             tabPage2.Text = "Ürün Arama";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // btnNewProduct
-            // 
-            btnNewProduct.Location = new Point(485, 12);
-            btnNewProduct.Name = "btnNewProduct";
-            btnNewProduct.Size = new Size(75, 23);
-            btnNewProduct.TabIndex = 2;
-            btnNewProduct.Text = "Yeni Ürün";
-            btnNewProduct.UseVisualStyleBackColor = true;
-            btnNewProduct.Click += btnNewProduct_Click;
-            // 
-            // btnNewCategory
-            // 
-            btnNewCategory.Location = new Point(384, 12);
-            btnNewCategory.Name = "btnNewCategory";
-            btnNewCategory.Size = new Size(95, 23);
-            btnNewCategory.TabIndex = 3;
-            btnNewCategory.Text = "Yeni Kategori";
-            btnNewCategory.UseVisualStyleBackColor = true;
-            btnNewCategory.Click += btnNewCategory_Click;
-            // 
             // tabPage3
             // 
             tabPage3.Controls.Add(dgvCategories);
@@ -182,6 +162,7 @@
             dgvCategories.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCategories.Size = new Size(535, 325);
             dgvCategories.TabIndex = 0;
+            dgvCategories.KeyDown += dgvCategories_KeyDown;
             // 
             // dgcCategoryName
             // 
@@ -198,6 +179,26 @@
             dgcCategoryDescription.HeaderText = "Açıklama";
             dgcCategoryDescription.Name = "dgcCategoryDescription";
             dgcCategoryDescription.ReadOnly = true;
+            // 
+            // btnNewProduct
+            // 
+            btnNewProduct.Location = new Point(485, 12);
+            btnNewProduct.Name = "btnNewProduct";
+            btnNewProduct.Size = new Size(75, 23);
+            btnNewProduct.TabIndex = 2;
+            btnNewProduct.Text = "Yeni Ürün";
+            btnNewProduct.UseVisualStyleBackColor = true;
+            btnNewProduct.Click += btnNewProduct_Click;
+            // 
+            // btnNewCategory
+            // 
+            btnNewCategory.Location = new Point(384, 12);
+            btnNewCategory.Name = "btnNewCategory";
+            btnNewCategory.Size = new Size(95, 23);
+            btnNewCategory.TabIndex = 3;
+            btnNewCategory.Text = "Yeni Kategori";
+            btnNewCategory.UseVisualStyleBackColor = true;
+            btnNewCategory.Click += btnNewCategory_Click;
             // 
             // FrmProducts
             // 

@@ -19,11 +19,21 @@ public class CategoryRepository : IConnectionManager
         CreateConnection();
     }
 
-    public void AddCategory(NewCategoryDTO category)
+    public bool AddCategory(NewCategoryDTO category)
     {
+        var countQuery = "select count(0) from Categories where CategoryName = @Name";
+        var count = connectionManager.GetConnection().ExecuteScalar<int>(countQuery, category);
+
+        if (count > 0)
+        {
+            return false;
+        }
+
         var query = @"insert into Categories (CategoryName, Description)
                       values (@Name, @Description)";
         connectionManager.GetConnection().Execute(query, category);
+
+        return true;
     }
 
     public void CreateConnection()

@@ -36,9 +36,17 @@ namespace Vektorel.Northwind.Erp.Products
                 Description = txtDescription.Text,
             };
 
-            repository.AddCategory(category);
+            var success = repository.AddCategory(category);
+
+            if (!success)
+            {
+                MessageBox.Show("Bu kategori zaten eklendi", "Yeni Kategori", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            
             txtName.Clear();
             txtDescription.Clear();
+            Close();
         }
     }
 }
