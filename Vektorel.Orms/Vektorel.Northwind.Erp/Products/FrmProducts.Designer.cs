@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             tabProducts = new TabControl();
             tabPage1 = new TabPage();
             btnPrevious = new Button();
@@ -41,6 +42,9 @@
             dgvCategories = new DataGridView();
             dgcCategoryName = new DataGridViewTextBoxColumn();
             dgcCategoryDescription = new DataGridViewTextBoxColumn();
+            dgcCategoryEdit = new DataGridViewButtonColumn();
+            ctxCategories = new ContextMenuStrip(components);
+            btnUpdateCategory = new ToolStripMenuItem();
             btnNewProduct = new Button();
             btnNewCategory = new Button();
             tabProducts.SuspendLayout();
@@ -48,6 +52,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
             tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCategories).BeginInit();
+            ctxCategories.SuspendLayout();
             SuspendLayout();
             // 
             // tabProducts
@@ -154,7 +159,8 @@
             dgvCategories.AllowUserToDeleteRows = false;
             dgvCategories.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCategories.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCategories.Columns.AddRange(new DataGridViewColumn[] { dgcCategoryName, dgcCategoryDescription });
+            dgvCategories.Columns.AddRange(new DataGridViewColumn[] { dgcCategoryName, dgcCategoryDescription, dgcCategoryEdit });
+            dgvCategories.ContextMenuStrip = ctxCategories;
             dgvCategories.Location = new Point(6, 6);
             dgvCategories.MultiSelect = false;
             dgvCategories.Name = "dgvCategories";
@@ -162,6 +168,7 @@
             dgvCategories.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCategories.Size = new Size(535, 325);
             dgvCategories.TabIndex = 0;
+            dgvCategories.CellContentClick += dgvCategories_CellContentClick;
             dgvCategories.KeyDown += dgvCategories_KeyDown;
             // 
             // dgcCategoryName
@@ -179,6 +186,29 @@
             dgcCategoryDescription.HeaderText = "Açıklama";
             dgcCategoryDescription.Name = "dgcCategoryDescription";
             dgcCategoryDescription.ReadOnly = true;
+            // 
+            // dgcCategoryEdit
+            // 
+            dgcCategoryEdit.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dgcCategoryEdit.HeaderText = "İşlemler";
+            dgcCategoryEdit.Name = "dgcCategoryEdit";
+            dgcCategoryEdit.ReadOnly = true;
+            dgcCategoryEdit.Text = "Düzenle";
+            dgcCategoryEdit.UseColumnTextForButtonValue = true;
+            dgcCategoryEdit.Width = 80;
+            // 
+            // ctxCategories
+            // 
+            ctxCategories.Items.AddRange(new ToolStripItem[] { btnUpdateCategory });
+            ctxCategories.Name = "ctxCategories";
+            ctxCategories.Size = new Size(181, 48);
+            // 
+            // btnUpdateCategory
+            // 
+            btnUpdateCategory.Name = "btnUpdateCategory";
+            btnUpdateCategory.Size = new Size(180, 22);
+            btnUpdateCategory.Text = "Güncelle";
+            btnUpdateCategory.Click += btnUpdateCategory_Click;
             // 
             // btnNewProduct
             // 
@@ -220,6 +250,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
             tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvCategories).EndInit();
+            ctxCategories.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -240,5 +271,8 @@
         private DataGridView dgvCategories;
         private DataGridViewTextBoxColumn dgcCategoryName;
         private DataGridViewTextBoxColumn dgcCategoryDescription;
+        private DataGridViewButtonColumn dgcCategoryEdit;
+        private ContextMenuStrip ctxCategories;
+        private ToolStripMenuItem btnUpdateCategory;
     }
 }

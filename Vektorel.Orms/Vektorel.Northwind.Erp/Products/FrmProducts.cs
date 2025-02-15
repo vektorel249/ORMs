@@ -80,7 +80,61 @@ namespace Vektorel.Northwind.Erp.Products
 
         private void dgvCategories_KeyDown(object sender, KeyEventArgs e)
         {
-            // Delete tuşuna basılırsa kategoriyi sil
+            if (e.KeyCode != Keys.Delete)
+            {
+                return;
+            }
+            var category = dgvCategories.SelectedRows[0].DataBoundItem as CategoryDTO; // seçili ilk satırın listeden bağlandığı nesnenin ilgili tipe çevirlmsi gerek
+            var confirm = MessageBox.Show($"{category.Name} kategorisi silinecek. Onaylıyor musunuz?", "Kategori Sil", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirm == DialogResult.No)
+            {
+                return;
+            }
+            var succeed = categoryRepository.Delete(category);
+
+            if (!succeed)
+            {
+                MessageBox.Show($"{category.Name} kategorisi en az 1 üründe kullanılıyor.", "Kategori Sil", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            dgvCategories.DataSource = null;
+            dgvCategories.DataSource = categoryRepository.GetCategories();
+        }
+
+        private void dgvCategories_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex != 2 && e.RowIndex > 0) // İşelmler kolonu
+            {
+                return;
+            }
+
+            var category = dgvCategories.SelectedRows[0].DataBoundItem as CategoryDTO; // seçili ilk satırın listeden bağlandığı nesnenin ilgili tipe çevirlmsi gerek
+            var form = formHelper.OpenForm<FrmUpdateCategory>();
+
+            if (form is null) // zaten açık
+            {
+                return;
+            }
+
+            form.SetValues(category);
+        }
+
+        private void btnUpdateCategory_Click(object sender, EventArgs e)
+        {
+            if (dgvCategories.SelectedRows.Count == 0) // seçili satır yoksa
+            {
+                return;
+            }
+            var category = dgvCategories.SelectedRows[0].DataBoundItem as CategoryDTO; // seçili ilk satırın listeden bağlandığı nesnenin ilgili tipe çevirlmsi gerek
+            var form = formHelper.OpenForm<FrmUpdateCategory>();
+
+            if (form is null) // zaten açık
+            {
+                return;
+            }
+
+            form.SetValues(category);
         }
     }
 }

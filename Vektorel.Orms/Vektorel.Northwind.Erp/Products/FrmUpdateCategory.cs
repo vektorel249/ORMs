@@ -1,27 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Vektorel.Northwind.Erp.Data.DTOs;
+﻿using Vektorel.Northwind.Erp.Data.DTOs;
 using Vektorel.Orms.Erp.Data.Repositories;
 
 namespace Vektorel.Northwind.Erp.Products
 {
-    public partial class FrmCreateCategory : Form
+    public partial class FrmUpdateCategory : Form
     {
         private CategoryRepository repository;
-        public FrmCreateCategory()
+        private int categoryId;
+        public FrmUpdateCategory()
         {
             InitializeComponent();
             repository = new CategoryRepository();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        public void SetValues(CategoryDTO category)
+        {
+            txtName.Text = category.Name;
+            txtDescription.Text = category.Description;
+            categoryId = category.Id;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
             erp.Clear();
             if (string.IsNullOrWhiteSpace(txtName.Text))
@@ -29,21 +28,20 @@ namespace Vektorel.Northwind.Erp.Products
                 erp.SetError(txtName, "Boş geçilemez"); // validation
                 return;
             }
-
-            var category = new NewCategoryDTO
+            var category = new CategoryDTO
             {
+                Id = categoryId,
                 Name = txtName.Text,
                 Description = txtDescription.Text,
             };
-
-            var success = repository.Add(category);
+            var success = repository.Update(category);
 
             if (!success)
             {
-                MessageBox.Show("Bu kategori zaten eklendi", "Yeni Kategori", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Bu kategori zaten var", "Kategori Güncelle", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            
+
             txtName.Clear();
             txtDescription.Clear();
             Close();

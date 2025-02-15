@@ -1,6 +1,6 @@
 ﻿namespace Vektorel.Northwind.Erp.Products
 {
-    partial class FrmCreateCategory
+    partial class FrmUpdateCategory
     {
         /// <summary>
         /// Required designer variable.
@@ -29,74 +29,73 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            label1 = new Label();
-            txtName = new TextBox();
-            label2 = new Label();
+            btnUpdate = new Button();
             txtDescription = new TextBox();
-            btnAdd = new Button();
+            label2 = new Label();
+            txtName = new TextBox();
+            label1 = new Label();
             erp = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)erp).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // btnUpdate
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(72, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Kategori Adı";
+            btnUpdate.Location = new Point(136, 124);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(75, 23);
+            btnUpdate.TabIndex = 9;
+            btnUpdate.Text = "Kaydet";
+            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
-            // txtName
+            // txtDescription
             // 
-            txtName.Location = new Point(12, 31);
-            txtName.Name = "txtName";
-            txtName.Size = new Size(194, 23);
-            txtName.TabIndex = 1;
+            txtDescription.Location = new Point(17, 83);
+            txtDescription.Name = "txtDescription";
+            txtDescription.Size = new Size(194, 23);
+            txtDescription.TabIndex = 8;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 61);
+            label2.Location = new Point(17, 65);
             label2.Name = "label2";
             label2.Size = new Size(56, 15);
-            label2.TabIndex = 2;
+            label2.TabIndex = 7;
             label2.Text = "Açıklama";
             // 
-            // txtDescription
+            // txtName
             // 
-            txtDescription.Location = new Point(12, 79);
-            txtDescription.Name = "txtDescription";
-            txtDescription.Size = new Size(194, 23);
-            txtDescription.TabIndex = 3;
+            txtName.Location = new Point(17, 35);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(194, 23);
+            txtName.TabIndex = 6;
             // 
-            // btnAdd
+            // label1
             // 
-            btnAdd.Location = new Point(131, 120);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(75, 23);
-            btnAdd.TabIndex = 4;
-            btnAdd.Text = "Kaydet";
-            btnAdd.UseVisualStyleBackColor = true;
-            btnAdd.Click += btnAdd_Click;
+            label1.AutoSize = true;
+            label1.Location = new Point(17, 13);
+            label1.Name = "label1";
+            label1.Size = new Size(72, 15);
+            label1.TabIndex = 5;
+            label1.Text = "Kategori Adı";
             // 
             // erp
             // 
             erp.ContainerControl = this;
             // 
-            // FrmCreateCategory
+            // FrmUpdateCategory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(229, 161);
-            Controls.Add(btnAdd);
+            Controls.Add(btnUpdate);
             Controls.Add(txtDescription);
             Controls.Add(label2);
             Controls.Add(txtName);
             Controls.Add(label1);
-            Name = "FrmCreateCategory";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Yeni Kategori";
+            Name = "FrmUpdateCategory";
+            Text = "Kategori Güncelle";
             ((System.ComponentModel.ISupportInitialize)erp).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -104,11 +103,11 @@
 
         #endregion
 
-        private Label label1;
-        private TextBox txtName;
-        private Label label2;
+        private Button btnUpdate;
         private TextBox txtDescription;
-        private Button btnAdd;
+        private Label label2;
+        private TextBox txtName;
+        private Label label1;
         private ErrorProvider erp;
     }
 }

@@ -19,12 +19,10 @@ public class CategoryRepository : IConnectionManager
         CreateConnection();
     }
 
-    public bool AddCategory(NewCategoryDTO category)
+    public bool Add(NewCategoryDTO category)
     {
-        var countQuery = "select count(0) from Categories where CategoryName = @Name";
-        var count = connectionManager.GetConnection().ExecuteScalar<int>(countQuery, category);
-
-        if (count > 0)
+        var exist = CheckIfExistByName(category.Name, 0);
+        if (exist)
         {
             return false;
         }
@@ -51,5 +49,44 @@ public class CategoryRepository : IConnectionManager
     {
         var query = "select CategoryID as Id, CategoryName as Name, Description from Categories order by Name";
         return connectionManager.GetConnection().Query<CategoryDTO>(query).ToList();
+    }
+
+    public bool Delete(CategoryDTO category)
+    {
+        var countQuery = "select count(0) from Products where CategoryId = @Id";
+        var count = connectionManager.GetConnection().ExecuteScalar<int>(countQuery, category);
+        if (count > 0)
+        {
+            return false;
+        }
+
+        var query = "delete from Categories where CategoryId = @Id";
+        connectionManager.GetConnection().Execute(query, category);
+        return true;
+    }
+
+    public bool Update(CategoryDTO category)
+    {
+        var exist = CheckIfExistByName(category.Name, category.Id);
+        if (exist)
+        {
+            return false;
+        }
+
+        var query = @"update Categories set CategoryName = @Name, Description = @Description where CategoryId = @Id";
+        connectionManager.GetConnection().Execute(query, category);
+        return true;
+    }
+
+    private bool CheckIfExistByName(string name, int id)
+    {
+        var countQuery = "select count(0) from Categories where CategoryName = @Name and CategoryId <> @Id";
+        var count = connectionManager.GetConnection().ExecuteScalar<int>(countQuery, new { Name = name, Id = id });
+
+        if (count > 0)
+        {
+            return true;
+        }
+        return false;
     }
 }

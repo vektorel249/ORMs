@@ -22,7 +22,7 @@ namespace Vektorel.Northwind.Erp.Helpers
             rootForm = root;
         }
 
-        public void OpenForm<T>() where T : Form
+        public T OpenForm<T>() where T : Form
         {
             var formName = typeof(T).Name;
 
@@ -30,7 +30,7 @@ namespace Vektorel.Northwind.Erp.Helpers
             {
                 var alreadyOpenedForm = forms[formName];
                 alreadyOpenedForm.BringToFront();
-                return;
+                return null;
             }
 
             var f = Activator.CreateInstance<T>(); // method ile instance alma yöntemi (Reflection)
@@ -44,6 +44,8 @@ namespace Vektorel.Northwind.Erp.Helpers
             f.Show();
 
             forms.Add(typeof(T).Name, f);
+
+            return f;
         }
 
         private void OnChildFromClosing(object sender, FormClosingEventArgs e)
