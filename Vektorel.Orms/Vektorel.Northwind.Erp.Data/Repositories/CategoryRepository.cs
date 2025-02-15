@@ -31,9 +31,15 @@ public class CategoryRepository : IConnectionManager
         connectionManager = new ConnectionManager();
     }
 
-    public List<Option> GetCategories()
+    public List<Option> GetCategoriesAsOptions()
     {
         var query = "select CategoryID as Code, CategoryName as Name from Categories order by Name";
         return connectionManager.GetConnection().Query<Option>(query).ToList();
+    }
+
+    public List<CategoryDTO> GetCategories()
+    {
+        var query = "select CategoryID as Id, CategoryName as Name, Description from Categories order by Name";
+        return connectionManager.GetConnection().Query<CategoryDTO>(query).ToList();
     }
 }

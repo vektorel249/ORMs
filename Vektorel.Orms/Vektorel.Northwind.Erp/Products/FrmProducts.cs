@@ -1,4 +1,5 @@
-﻿using Vektorel.Northwind.Erp.Data.Entities;
+﻿using Vektorel.Northwind.Erp.Data.DTOs;
+using Vektorel.Northwind.Erp.Data.Entities;
 using Vektorel.Northwind.Erp.Helpers;
 using Vektorel.Orms.Erp.Data.Repositories;
 
@@ -7,6 +8,7 @@ namespace Vektorel.Northwind.Erp.Products
     public partial class FrmProducts : Form
     {
         private ProductRepository repository;
+        private CategoryRepository categoryRepository;
         private FormHelper formHelper;
         public int PageIndex { get; set; }
         public int Total { get; set; }
@@ -19,7 +21,13 @@ namespace Vektorel.Northwind.Erp.Products
             dgcName.DataPropertyName = nameof(Product.ProductName); // "ProductName" demek
             dgcPrice.DataPropertyName = nameof(Product.UnitPrice); // "UnitPrice" demek
             dgcStock.DataPropertyName = nameof(Product.UnitsInStock); // "UnitsInStock" demek
+
+            dgvCategories.AutoGenerateColumns = false; // Modelde başka property ler varsa datagridview'e ekleme!
+            dgcCategoryName.DataPropertyName = nameof(CategoryDTO.Name);
+            dgcCategoryDescription.DataPropertyName = nameof(CategoryDTO.Description);
+
             repository = new ProductRepository();
+            categoryRepository = new CategoryRepository();
             formHelper = new FormHelper();
         }
 
@@ -59,6 +67,15 @@ namespace Vektorel.Northwind.Erp.Products
         private void btnNewCategory_Click(object sender, EventArgs e)
         {
             formHelper.OpenForm<FrmCreateCategory>();
+        }
+
+        private void tabProducts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabProducts.SelectedIndex == 2) // Kategori sekmesi
+            {
+                dgvCategories.DataSource = null;
+                dgvCategories.DataSource = categoryRepository.GetCategories();
+            }
         }
     }
 }

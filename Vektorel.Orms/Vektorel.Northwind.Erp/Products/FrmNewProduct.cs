@@ -13,7 +13,7 @@ public partial class FrmNewProduct : Form
     private void FrmNewProduct_Load(object sender, EventArgs e)
     {
         var cRepo = new CategoryRepository();
-        cmbCategories.DataSource = cRepo.GetCategories();
+        cmbCategories.DataSource = cRepo.GetCategoriesAsOptions();
         cmbCategories.DisplayMember = nameof(Option.Name);
 
         var sRepo = new SupplierRepository();

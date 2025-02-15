@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            tabControl1 = new TabControl();
+            tabProducts = new TabControl();
             tabPage1 = new TabPage();
             btnPrevious = new Button();
             btnNext = new Button();
@@ -39,20 +39,28 @@
             tabPage2 = new TabPage();
             btnNewProduct = new Button();
             btnNewCategory = new Button();
-            tabControl1.SuspendLayout();
+            tabPage3 = new TabPage();
+            dgvCategories = new DataGridView();
+            dgcCategoryName = new DataGridViewTextBoxColumn();
+            dgcCategoryDescription = new DataGridViewTextBoxColumn();
+            tabProducts.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
+            tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvCategories).BeginInit();
             SuspendLayout();
             // 
-            // tabControl1
+            // tabProducts
             // 
-            tabControl1.Controls.Add(tabPage1);
-            tabControl1.Controls.Add(tabPage2);
-            tabControl1.Location = new Point(12, 40);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(555, 366);
-            tabControl1.TabIndex = 1;
+            tabProducts.Controls.Add(tabPage1);
+            tabProducts.Controls.Add(tabPage2);
+            tabProducts.Controls.Add(tabPage3);
+            tabProducts.Location = new Point(12, 40);
+            tabProducts.Name = "tabProducts";
+            tabProducts.SelectedIndex = 0;
+            tabProducts.Size = new Size(555, 366);
+            tabProducts.TabIndex = 1;
+            tabProducts.SelectedIndexChanged += tabProducts_SelectedIndexChanged;
             // 
             // tabPage1
             // 
@@ -149,6 +157,48 @@
             btnNewCategory.UseVisualStyleBackColor = true;
             btnNewCategory.Click += btnNewCategory_Click;
             // 
+            // tabPage3
+            // 
+            tabPage3.Controls.Add(dgvCategories);
+            tabPage3.Location = new Point(4, 24);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Padding = new Padding(3);
+            tabPage3.Size = new Size(547, 338);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "Kategoriler";
+            tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // dgvCategories
+            // 
+            dgvCategories.AllowUserToAddRows = false;
+            dgvCategories.AllowUserToDeleteRows = false;
+            dgvCategories.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvCategories.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCategories.Columns.AddRange(new DataGridViewColumn[] { dgcCategoryName, dgcCategoryDescription });
+            dgvCategories.Location = new Point(6, 6);
+            dgvCategories.MultiSelect = false;
+            dgvCategories.Name = "dgvCategories";
+            dgvCategories.ReadOnly = true;
+            dgvCategories.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvCategories.Size = new Size(535, 325);
+            dgvCategories.TabIndex = 0;
+            // 
+            // dgcCategoryName
+            // 
+            dgcCategoryName.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dgcCategoryName.FillWeight = 121.827408F;
+            dgcCategoryName.HeaderText = "Adı";
+            dgcCategoryName.Name = "dgcCategoryName";
+            dgcCategoryName.ReadOnly = true;
+            dgcCategoryName.Width = 120;
+            // 
+            // dgcCategoryDescription
+            // 
+            dgcCategoryDescription.FillWeight = 78.17259F;
+            dgcCategoryDescription.HeaderText = "Açıklama";
+            dgcCategoryDescription.Name = "dgcCategoryDescription";
+            dgcCategoryDescription.ReadOnly = true;
+            // 
             // FrmProducts
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -156,7 +206,7 @@
             ClientSize = new Size(579, 407);
             Controls.Add(btnNewCategory);
             Controls.Add(btnNewProduct);
-            Controls.Add(tabControl1);
+            Controls.Add(tabProducts);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
@@ -164,15 +214,17 @@
             ShowInTaskbar = false;
             Text = "Ürünler ve Stok Takibi";
             Load += FrmProducts_Load;
-            tabControl1.ResumeLayout(false);
+            tabProducts.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
+            tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvCategories).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private TabControl tabControl1;
+        private TabControl tabProducts;
         private TabPage tabPage1;
         private TabPage tabPage2;
         private Button btnNewProduct;
@@ -183,5 +235,9 @@
         private DataGridViewTextBoxColumn dgcName;
         private DataGridViewTextBoxColumn dgcPrice;
         private DataGridViewTextBoxColumn dgcStock;
+        private TabPage tabPage3;
+        private DataGridView dgvCategories;
+        private DataGridViewTextBoxColumn dgcCategoryName;
+        private DataGridViewTextBoxColumn dgcCategoryDescription;
     }
 }

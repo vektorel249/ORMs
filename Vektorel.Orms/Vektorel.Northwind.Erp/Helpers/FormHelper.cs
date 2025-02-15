@@ -40,13 +40,10 @@ namespace Vektorel.Northwind.Erp.Helpers
             f.MaximizeBox = false;
             f.MinimizeBox = false;
             f.FormBorderStyle = FormBorderStyle.FixedSingle;
-            f.FormClosing += OnChildFromClosing;
+            f.FormClosing += OnChildFromClosing; // Her form oluşturulduğunda closing event'ine ship olsun
             f.Show();
 
             forms.Add(typeof(T).Name, f);
-
-            // Her formu yalnızca bir kere açabilecek bir şey yapın.
-            // İpucu: Araştırınız => Dictionary
         }
 
         private void OnChildFromClosing(object sender, FormClosingEventArgs e)
