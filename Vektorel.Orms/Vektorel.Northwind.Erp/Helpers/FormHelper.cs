@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Vektorel.Northwind.Erp.Helpers
 {
@@ -39,6 +40,7 @@ namespace Vektorel.Northwind.Erp.Helpers
             f.MaximizeBox = false;
             f.MinimizeBox = false;
             f.FormBorderStyle = FormBorderStyle.FixedSingle;
+            f.FormClosing += OnChildFromClosing;
             f.Show();
 
             forms.Add(typeof(T).Name, f);
@@ -47,9 +49,14 @@ namespace Vektorel.Northwind.Erp.Helpers
             // İpucu: Araştırınız => Dictionary
         }
 
-        public void CloseForm<T>() where T : Form
+        private void OnChildFromClosing(object sender, FormClosingEventArgs e)
         {
-
+            var form = (Form)sender;
+            if (forms.ContainsKey(form.Name))
+            {
+                forms.Remove(form.Name);
+                form.Dispose();
+            }
         }
     }
 }

@@ -18,6 +18,14 @@ public class CategoryRepository : IConnectionManager
     {
         CreateConnection();
     }
+
+    public void AddCategory(NewCategoryDTO category)
+    {
+        var query = @"insert into Categories (CategoryName, Description)
+                      values (@Name, @Description)";
+        connectionManager.GetConnection().Execute(query, category);
+    }
+
     public void CreateConnection()
     {
         connectionManager = new ConnectionManager();

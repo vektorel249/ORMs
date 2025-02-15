@@ -38,7 +38,7 @@
             dgcStock = new DataGridViewTextBoxColumn();
             tabPage2 = new TabPage();
             btnNewProduct = new Button();
-            button1 = new Button();
+            btnNewCategory = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
@@ -139,21 +139,22 @@
             btnNewProduct.UseVisualStyleBackColor = true;
             btnNewProduct.Click += btnNewProduct_Click;
             // 
-            // button1
+            // btnNewCategory
             // 
-            button1.Location = new Point(384, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(95, 23);
-            button1.TabIndex = 3;
-            button1.Text = "Yeni Kategori";
-            button1.UseVisualStyleBackColor = true;
+            btnNewCategory.Location = new Point(384, 12);
+            btnNewCategory.Name = "btnNewCategory";
+            btnNewCategory.Size = new Size(95, 23);
+            btnNewCategory.TabIndex = 3;
+            btnNewCategory.Text = "Yeni Kategori";
+            btnNewCategory.UseVisualStyleBackColor = true;
+            btnNewCategory.Click += btnNewCategory_Click;
             // 
             // FrmProducts
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(579, 407);
-            Controls.Add(button1);
+            Controls.Add(btnNewCategory);
             Controls.Add(btnNewProduct);
             Controls.Add(tabControl1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -175,7 +176,7 @@
         private TabPage tabPage1;
         private TabPage tabPage2;
         private Button btnNewProduct;
-        private Button button1;
+        private Button btnNewCategory;
         private Button btnPrevious;
         private Button btnNext;
         private DataGridView dgvProducts;

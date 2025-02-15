@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
-            textBox1 = new TextBox();
+            txtName = new TextBox();
             label2 = new Label();
-            textBox2 = new TextBox();
-            button1 = new Button();
+            txtDescription = new TextBox();
+            btnAdd = new Button();
+            erp = new ErrorProvider(components);
+            ((System.ComponentModel.ISupportInitialize)erp).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -44,12 +47,12 @@
             label1.TabIndex = 0;
             label1.Text = "Kategori Adı";
             // 
-            // textBox1
+            // txtName
             // 
-            textBox1.Location = new Point(12, 31);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(194, 23);
-            textBox1.TabIndex = 1;
+            txtName.Location = new Point(12, 31);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(194, 23);
+            txtName.TabIndex = 1;
             // 
             // label2
             // 
@@ -60,35 +63,41 @@
             label2.TabIndex = 2;
             label2.Text = "Açıklama";
             // 
-            // textBox2
+            // txtDescription
             // 
-            textBox2.Location = new Point(12, 79);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(194, 23);
-            textBox2.TabIndex = 3;
+            txtDescription.Location = new Point(12, 79);
+            txtDescription.Name = "txtDescription";
+            txtDescription.Size = new Size(194, 23);
+            txtDescription.TabIndex = 3;
             // 
-            // button1
+            // btnAdd
             // 
-            button1.Location = new Point(131, 120);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 4;
-            button1.Text = "Kaydet";
-            button1.UseVisualStyleBackColor = true;
+            btnAdd.Location = new Point(131, 120);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(75, 23);
+            btnAdd.TabIndex = 4;
+            btnAdd.Text = "Kaydet";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
+            // 
+            // erp
+            // 
+            erp.ContainerControl = this;
             // 
             // FrmCreateCategory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(218, 164);
-            Controls.Add(button1);
-            Controls.Add(textBox2);
+            ClientSize = new Size(229, 164);
+            Controls.Add(btnAdd);
+            Controls.Add(txtDescription);
             Controls.Add(label2);
-            Controls.Add(textBox1);
+            Controls.Add(txtName);
             Controls.Add(label1);
             Name = "FrmCreateCategory";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Yeni Kategori";
+            ((System.ComponentModel.ISupportInitialize)erp).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -96,9 +105,10 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
+        private TextBox txtName;
         private Label label2;
-        private TextBox textBox2;
-        private Button button1;
+        private TextBox txtDescription;
+        private Button btnAdd;
+        private ErrorProvider erp;
     }
 }

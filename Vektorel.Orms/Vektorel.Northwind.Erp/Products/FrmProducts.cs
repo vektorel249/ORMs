@@ -55,5 +55,10 @@ namespace Vektorel.Northwind.Erp.Products
         {
             formHelper.OpenForm<FrmNewProduct>();
         }
+
+        private void btnNewCategory_Click(object sender, EventArgs e)
+        {
+            formHelper.OpenForm<FrmCreateCategory>();
+        }
     }
 }
