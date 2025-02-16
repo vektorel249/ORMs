@@ -22,9 +22,22 @@ namespace Vektorel.Northwind.Erp.Data.Repositories
             connectionManager = new ConnectionManager();
         }
 
+        public int CreateOrder(NewOrderDTO order)
+        {
+            var query = @"insert into Orders (CustomerID, EmployeeID, OrderDate, RequiredDate)
+                          values (@CustomerId, @EmployeeId, @OrderDate, @RequiredDate);
+
+                          select scope_identity();"; // eklnen kaydı identity değerini de getir
+
+            return connectionManager.GetConnection().ExecuteScalar<int>(query, order);
+        }
+
         public void Dispose()
         {
-
+            if (connectionManager.IsConnected)
+            {
+                connectionManager.Kill();
+            }
         }
 
         public List<OrderDetailDTO> GetDetails(int orderId)

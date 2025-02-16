@@ -44,7 +44,16 @@ namespace Vektorel.Orms.Erp.Data.Repositories
 
         public void Dispose()
         {
-            //BKZ: ORder Repository
+            if (connectionManager.IsConnected)
+            {
+                connectionManager.Kill();
+            }
+        }
+
+        public List<Option> GetProductsAsOptions()
+        {
+            var query = "select ProductID as Code, ProductName as Name from Products order by Name";
+            return connectionManager.GetConnection().Query<Option>(query).ToList();
         }
     }
 }

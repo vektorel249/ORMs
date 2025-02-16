@@ -96,6 +96,9 @@ public class CategoryRepository : IConnectionManager
 
     public void Dispose()
     {
-        //BKZ: ORder Repository
+        if (connectionManager.IsConnected)
+        {
+            connectionManager.Kill();
+        }
     }
 }
