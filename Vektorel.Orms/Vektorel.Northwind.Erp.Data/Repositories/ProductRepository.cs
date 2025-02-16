@@ -41,6 +41,11 @@ namespace Vektorel.Orms.Erp.Data.Repositories
                           values (@Name, @Price, @Stock, @CategoryId, @SupplierId)";
             connectionManager.GetConnection().Execute(query, product);
         }
+
+        public void Dispose()
+        {
+            //BKZ: ORder Repository
+        }
     }
 }
 

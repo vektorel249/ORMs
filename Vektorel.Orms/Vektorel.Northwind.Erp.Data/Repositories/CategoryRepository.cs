@@ -93,4 +93,9 @@ public class CategoryRepository : IConnectionManager
         }
         return false;
     }
+
+    public void Dispose()
+    {
+        //BKZ: ORder Repository
+    }
 }

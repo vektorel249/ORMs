@@ -1,5 +1,6 @@
 using Vektorel.Northwind.Erp.Helpers;
 using Vektorel.Northwind.Erp.Main;
+using Vektorel.Northwind.Erp.Orders;
 using Vektorel.Northwind.Erp.Products;
 using Vektorel.Northwind.Erp.Suppliers;
 
@@ -61,6 +62,11 @@ namespace Vektorel.Northwind.Erp
         private void msbNewCategory_Click(object sender, EventArgs e)
         {
             formHelper.OpenForm<FrmCreateCategory>();
+        }
+
+        private void msbOrders_Click(object sender, EventArgs e)
+        {
+            formHelper.OpenForm<FrmOrders>();
         }
     }
 }

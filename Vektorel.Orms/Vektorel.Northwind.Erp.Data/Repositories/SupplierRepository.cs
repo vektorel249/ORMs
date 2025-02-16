@@ -17,6 +17,14 @@ namespace Vektorel.Orms.Erp.Data.Repositories
             connectionManager = new ConnectionManager();
         }
 
+        public void Dispose()
+        {
+            if (connectionManager.IsConnected)
+            {
+                connectionManager.Kill();
+            }
+        }
+
         public List<Option> GetSuppliers()
         {
             var query = "select SupplierID as Code, CompanyName as Name from Suppliers order by Name";

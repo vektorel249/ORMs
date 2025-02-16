@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Vektorel.Northwind.Erp.Data.Managers;
 
-namespace Vektorel.Northwind.Erp.Data.Managers
+public interface IConnectionManager : IDisposable
 {
-    public interface IConnectionManager
-    {
-        void CreateConnection();
-    }
+    void CreateConnection();
 }

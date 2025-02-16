@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Configuration;
+using System.Data;
 
 namespace Vektorel.Northwind.Erp.Data.Managers
 {
@@ -11,7 +12,9 @@ namespace Vektorel.Northwind.Erp.Data.Managers
             var connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             sqlConnection = new SqlConnection(connectionString);
         }
-        
+
+        public bool IsConnected { get { return sqlConnection.State == ConnectionState.Open; } }
+
         private void Open()
         {
             if (sqlConnection.State != System.Data.ConnectionState.Open)
@@ -24,6 +27,12 @@ namespace Vektorel.Northwind.Erp.Data.Managers
         {
             Open();
             return sqlConnection; 
+        }
+
+        internal void Kill()
+        {
+            sqlConnection.Close();
+            sqlConnection.Dispose();
         }
     }
 }

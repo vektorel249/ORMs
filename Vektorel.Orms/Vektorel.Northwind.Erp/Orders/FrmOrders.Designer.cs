@@ -28,12 +28,98 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FrmOrders";
+            components = new System.ComponentModel.Container();
+            dgvOrders = new DataGridView();
+            btnSearch = new Button();
+            txtOrderId = new TextBox();
+            label1 = new Label();
+            btnDisableFilter = new Button();
+            erp = new ErrorProvider(components);
+            ((System.ComponentModel.ISupportInitialize)dgvOrders).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)erp).BeginInit();
+            SuspendLayout();
+            // 
+            // dgvOrders
+            // 
+            dgvOrders.AllowUserToAddRows = false;
+            dgvOrders.AllowUserToDeleteRows = false;
+            dgvOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvOrders.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvOrders.Location = new Point(12, 46);
+            dgvOrders.MultiSelect = false;
+            dgvOrders.Name = "dgvOrders";
+            dgvOrders.ReadOnly = true;
+            dgvOrders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvOrders.Size = new Size(536, 275);
+            dgvOrders.TabIndex = 0;
+            // 
+            // btnSearch
+            // 
+            btnSearch.Location = new Point(367, 12);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(75, 23);
+            btnSearch.TabIndex = 1;
+            btnSearch.Text = "Ara";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
+            // 
+            // txtOrderId
+            // 
+            txtOrderId.Location = new Point(231, 12);
+            txtOrderId.MaxLength = 5;
+            txtOrderId.Name = "txtOrderId";
+            txtOrderId.Size = new Size(110, 23);
+            txtOrderId.TabIndex = 2;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(130, 16);
+            label1.Name = "label1";
+            label1.Size = new Size(95, 15);
+            label1.TabIndex = 3;
+            label1.Text = "Sipariş Numarası";
+            // 
+            // btnDisableFilter
+            // 
+            btnDisableFilter.Location = new Point(448, 12);
+            btnDisableFilter.Name = "btnDisableFilter";
+            btnDisableFilter.Size = new Size(100, 23);
+            btnDisableFilter.TabIndex = 4;
+            btnDisableFilter.Text = "Filtreyi Kaldır";
+            btnDisableFilter.UseVisualStyleBackColor = true;
+            btnDisableFilter.Click += btnDisableFilter_Click;
+            // 
+            // erp
+            // 
+            erp.ContainerControl = this;
+            // 
+            // FrmOrders
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(560, 333);
+            Controls.Add(btnDisableFilter);
+            Controls.Add(label1);
+            Controls.Add(txtOrderId);
+            Controls.Add(btnSearch);
+            Controls.Add(dgvOrders);
+            Name = "FrmOrders";
+            Text = "Siparişler";
+            Load += FrmOrders_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvOrders).EndInit();
+            ((System.ComponentModel.ISupportInitialize)erp).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private DataGridView dgvOrders;
+        private Button btnSearch;
+        private TextBox txtOrderId;
+        private Label label1;
+        private Button btnDisableFilter;
+        private ErrorProvider erp;
     }
 }
