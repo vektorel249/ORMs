@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Vektorel.Northwind.Erp.Data.DTOs;
 using Vektorel.Northwind.Erp.Data.Repositories;
+using Vektorel.Northwind.Erp.Helpers;
 
 namespace Vektorel.Northwind.Erp.Orders
 {
     public partial class FrmOrders : Form
     {
+        private FormHelper formHelper;
+
         public FrmOrders()
         {
             InitializeComponent();
+            formHelper = new FormHelper();
         }
 
         private void FrmOrders_Load(object sender, EventArgs e)
@@ -43,6 +39,18 @@ namespace Vektorel.Northwind.Erp.Orders
         {
             FrmOrders_Load(null, null);
             txtOrderId.Clear();
+        }
+
+        private void dgvOrders_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvOrders.SelectedRows.Count == 0)
+            {
+                return;
+            }
+            var selected = dgvOrders.SelectedRows[0].DataBoundItem as OrderListDTO;
+
+            var f = formHelper.OpenForm<FrmOrderDetail>();
+            f.LoadOrder(selected.OrderId);
         }
     }
 }

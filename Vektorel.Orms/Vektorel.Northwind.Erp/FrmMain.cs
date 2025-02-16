@@ -68,5 +68,15 @@ namespace Vektorel.Northwind.Erp
         {
             formHelper.OpenForm<FrmOrders>();
         }
+
+        private void msbNewOrder_Click(object sender, EventArgs e)
+        {
+            formHelper.OpenForm<FrmNewOrder>();
+        }
+
+        private void msbEmployeePerformance_Click(object sender, EventArgs e)
+        {
+            formHelper.OpenForm<FrmReport>();
+        }
     }
 }

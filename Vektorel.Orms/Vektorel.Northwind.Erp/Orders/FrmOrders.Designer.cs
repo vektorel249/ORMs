@@ -52,6 +52,7 @@
             dgvOrders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvOrders.Size = new Size(536, 275);
             dgvOrders.TabIndex = 0;
+            dgvOrders.CellDoubleClick += dgvOrders_CellDoubleClick;
             // 
             // btnSearch
             // 

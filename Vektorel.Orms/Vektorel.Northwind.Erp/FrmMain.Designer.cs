@@ -42,10 +42,15 @@
             toolStripSeparator2 = new ToolStripSeparator();
             msbNewCategory = new ToolStripMenuItem();
             siparişYönetimiToolStripMenuItem = new ToolStripMenuItem();
+            msbNewOrder = new ToolStripMenuItem();
+            toolStripSeparator3 = new ToolStripSeparator();
             msbNewCustomer = new ToolStripMenuItem();
             msbCustomers = new ToolStripMenuItem();
             msbOrders = new ToolStripMenuItem();
             msbSearchOrder = new ToolStripMenuItem();
+            toolStripSeparator4 = new ToolStripSeparator();
+            raporlarToolStripMenuItem = new ToolStripMenuItem();
+            msbEmployeePerformance = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -139,10 +144,22 @@
             // 
             // siparişYönetimiToolStripMenuItem
             // 
-            siparişYönetimiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { msbNewCustomer, msbCustomers, msbOrders, msbSearchOrder });
+            siparişYönetimiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { msbNewOrder, toolStripSeparator3, msbNewCustomer, msbCustomers, msbOrders, msbSearchOrder, toolStripSeparator4, raporlarToolStripMenuItem });
             siparişYönetimiToolStripMenuItem.Name = "siparişYönetimiToolStripMenuItem";
             siparişYönetimiToolStripMenuItem.Size = new Size(103, 20);
             siparişYönetimiToolStripMenuItem.Text = "Sipariş Yönetimi";
+            // 
+            // msbNewOrder
+            // 
+            msbNewOrder.Name = "msbNewOrder";
+            msbNewOrder.Size = new Size(180, 22);
+            msbNewOrder.Text = "Yeni Sipariş";
+            msbNewOrder.Click += msbNewOrder_Click;
+            // 
+            // toolStripSeparator3
+            // 
+            toolStripSeparator3.Name = "toolStripSeparator3";
+            toolStripSeparator3.Size = new Size(177, 6);
             // 
             // msbNewCustomer
             // 
@@ -168,6 +185,25 @@
             msbSearchOrder.Name = "msbSearchOrder";
             msbSearchOrder.Size = new Size(180, 22);
             msbSearchOrder.Text = "Sipariş Arama";
+            // 
+            // toolStripSeparator4
+            // 
+            toolStripSeparator4.Name = "toolStripSeparator4";
+            toolStripSeparator4.Size = new Size(177, 6);
+            // 
+            // raporlarToolStripMenuItem
+            // 
+            raporlarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { msbEmployeePerformance });
+            raporlarToolStripMenuItem.Name = "raporlarToolStripMenuItem";
+            raporlarToolStripMenuItem.Size = new Size(180, 22);
+            raporlarToolStripMenuItem.Text = "Raporlar";
+            // 
+            // msbEmployeePerformance
+            // 
+            msbEmployeePerformance.Name = "msbEmployeePerformance";
+            msbEmployeePerformance.Size = new Size(186, 22);
+            msbEmployeePerformance.Text = "Personel Performansı";
+            msbEmployeePerformance.Click += msbEmployeePerformance_Click;
             // 
             // FrmMain
             // 
@@ -207,5 +243,10 @@
         private ToolStripMenuItem msbCustomers;
         private ToolStripMenuItem msbOrders;
         private ToolStripMenuItem msbSearchOrder;
+        private ToolStripMenuItem msbNewOrder;
+        private ToolStripSeparator toolStripSeparator3;
+        private ToolStripSeparator toolStripSeparator4;
+        private ToolStripMenuItem raporlarToolStripMenuItem;
+        private ToolStripMenuItem msbEmployeePerformance;
     }
 }

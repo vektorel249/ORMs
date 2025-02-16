@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ScottPlot.WinForms" Version="5.0.54" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Vektorel.Northwind.Erp.Data\Vektorel.Northwind.Erp.Data.csproj" />
   </ItemGroup>
 

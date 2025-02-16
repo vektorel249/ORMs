@@ -27,6 +27,32 @@ namespace Vektorel.Northwind.Erp.Data.Repositories
 
         }
 
+        public List<OrderDetailDTO> GetDetails(int orderId)
+        {
+            var query = $@"select 
+                           	  p.ProductName as Product, 
+                           	  od.Quantity as Amount, 
+                           	  od.UnitPrice as Price
+                           from [Order Details] od
+                           inner join Products p on od.ProductID = p.ProductID
+                           where od.OrderID = {orderId}
+                           order by Product";
+            return connectionManager.GetConnection().Query<OrderDetailDTO>(query).ToList();
+        }
+
+        public List<EmployeePerformanceDTO> GetEmployeePerformance()
+        {
+            var query = @"select 
+	                          concat(e.FirstName, ' ', e.LastName) as Employee, 
+	                          sum(od.UnitPrice * od.Quantity) as Total
+                          from [Order Details] od
+                          inner join Orders o on od.OrderID = o.OrderID
+                          inner join Employees e on o.EmployeeID = e.EmployeeID
+                          group by concat(e.FirstName, ' ', e.LastName)";
+
+            return connectionManager.GetConnection().Query<EmployeePerformanceDTO>(query).ToList();
+        }
+
         public List<OrderListDTO> GetLastOrders(int? orderId = null)
         {
             var builder = new StringBuilder(); // BUilder pattern
@@ -51,6 +77,21 @@ namespace Vektorel.Northwind.Erp.Data.Repositories
             }
 
             return connectionManager.GetConnection().Query<OrderListDTO>(builder.ToString()).ToList();
+        }
+
+        public OrderMetadataDTO GetMetadata(int orderId)
+        {
+            var query = $@"select 
+	                             c.CompanyName as Customer, 
+	                             c.Phone, 
+	                             o.OrderDate, 
+	                             o.RequiredDate, 
+	                             CONCAT(e.FirstName, ' ', e.LastName) as Employee from Orders o
+                           inner join Customers c on o.CustomerID = c.CustomerID
+                           inner join Employees e on o.EmployeeID = e.EmployeeID
+                           where o.OrderID = {orderId}";
+
+            return connectionManager.GetConnection().QueryFirst<OrderMetadataDTO>(query);
         }
     }
 }
